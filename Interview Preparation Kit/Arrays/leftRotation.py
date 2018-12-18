@@ -9,32 +9,7 @@ import Queue
 
 # Complete the rotLeft function below.
 def rotLeft(a, d):
-    length = len(a)
-    if(d==length):
-        return a
-    if(d>length/2):
-         return rotateRight(a,length-d,length)
-    return rotateLeft(a,d,length)
-    
-def rotateLeft(a,d,length):
-    lst =[]
-    for i in range(d):
-        lst.append(a[(-i)%length])
-    for i in range(length):
-        lst.append(a[(-i-d)%length])
-        a[(-i-d)%length] =lst.pop(0)
-            
-    return a
-
-def rotateRight(a,d,length):
-    lst =[]
-    for i in range(d):
-        lst.append(a[(i)%length])
-    for i in range(length):
-        lst.append(a[(i+d)%length])
-        a[(i+d)%length] =lst.pop(0)
-            
-    return a
+    return a[d:]+a[:d]
 
 
 if __name__ == '__main__':
